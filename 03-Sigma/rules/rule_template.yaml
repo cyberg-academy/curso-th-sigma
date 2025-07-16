@@ -1,0 +1,46 @@
+# Doc: https://sigmahq.io/docs/basics/rules.html
+# Start optional fields: Title, ID, Status, Description, License, Author, Date / Modified, References, Tags, False Positives, Level
+title: Title of the rule
+id: 3b4e950b-a3ea-44d3-877e-4320719907010 # uuid4
+status: experimental # Options: stable | test | experimental | deprecated | unsupported
+description: Detects the execution of ...
+license: MIT
+author: Pepe Llopis [contact@cyberg-academy.io]
+date: 2025-02-21
+modified: 2025-02-25 # Update modified when: Change the title, detection section, level or logsource
+references:
+    - https://example.com/1
+    - https://example.com/2
+tags: # doc: https://github.com/SigmaHQ/sigma-specification/blob/main/appendix/sigma-tags-appendix.md
+    # MITRE ATT&CK framework references
+    - attack.discovery
+    - attack.t1012
+    - attack.g0018
+    - attack.s0066
+    # CVE
+    - cve.2022-27925
+falsepositives:
+    - This rule can sometimes create false-positives when a user forefully restarts their workstation
+level: low # Options: critical | high | medium | low | informational
+# End optional fields
+# Start required fields: logsource and detection
+logsource: # Required, doc: https://sigmahq.io/docs/basics/log-sources.html#standard-logsources
+    product: windows
+    category: process_creation
+    definition: Script Block Logging must be enabled
+detection: # Required
+    # Modifiers doc: https://sigmahq.io/docs/basics/modifiers.html
+        # Available modifiers: all, base64, base64offset, cased, cidr, contains, endswith, exists, expand, fieldref, gt, gte, lt, lte, re, startswith, utf16, utf16le, utf16be, wide, windash
+    selection:
+        CommandLine:
+            - 'cmd /yep' # or
+            - 'cmd /ye2'
+        Image: # and
+            - 'C:\Windows\System32\cmd.exe'
+    selection2:
+        keywords: # and
+            - 'cmd /yep' # or
+            - 'cmd /yep2'
+    # Conditions doc: https://sigmahq.io/docs/basics/conditions.html
+        # Available conditions: not, and, or, ( ), 1 of (search pattern), all of (seach pattern), 1 of them, all of them
+    condition: selection and selection2 # and not (selection3 or selection4)

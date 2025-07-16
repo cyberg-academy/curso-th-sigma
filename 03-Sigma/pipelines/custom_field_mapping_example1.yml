@@ -1,0 +1,19 @@
+name: Example 1 - Custom field mapping
+priority: 100
+transformations:
+  - id: prefix_vars
+    type: add_condition
+    conditions:
+      extra_var: "extra_var"
+    rule_conditions:
+      - type: logsource
+        product: windows
+        service: windefend
+  - id: map_fields
+    type: field_name_mapping
+    mapping:
+      EventID: "event.test"
+    rule_conditions:
+      - type: logsource
+        product: windows
+        service: windefend

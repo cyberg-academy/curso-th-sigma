@@ -1,0 +1,8 @@
+logsource:
+    product: linux
+detection:
+    selection:
+        CommandLine|windash|contains:
+            - '/dclist'
+    condition: selection
+
