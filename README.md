@@ -1,29 +1,18 @@
-## Project Overview
+# Threat Hunting Avanzado con Sigma
 
-This Cyberg Academy cybersecurity course repository focused on Threat Hunting and Sigma rule development ("curso-th-sigma"). The project is educational in nature, teaching threat hunting methodologies and detection rule creation using the Sigma standard.
+Repositorio oficial del curso de [Cyberg Academy - Threat Hunting Avanzado con Sigma](https://cyberg-academy.io/curso-th-avanzando-sigma).
 
-## Repository Structure
+## Estructura del Repositorio
 
-### Lab Configuration (01-Configuracion-del-Lab/)
-- `elastic_upload_events.py` - Script to upload threat hunting lab events to Elasticsearch
-- `cyberg-th-lab-events.json` - Aggregated lab events for analysis
+### 01-Configuracion-del-Lab
+- `elastic_upload_events.py` - Script para subir eventos de laboratorio a Elasticsearch
 
-### Threat Intelligence (02-Introduccion-al-TH/)
-- `fetch_company_threats.py` - Interactive script to analyze APT threats relevant to specific companies based on sectors and countries
-- `search_sigma_rules_by_threat.py` - Script to search Sigma rules by specific threat indicators (groups, tools, CVEs, tactics, techniques)
+### 02-Introduccion-al-TH
+- `fetch_company_threats.py` - Script para analizar amenazas APT relevantes por sector y país
+- `search_sigma_rules_by_threat.py` - Script para buscar reglas Sigma por indicadores de amenaza
 
-### Sigma Rules Development (03-Sigma/)
-- `rules/` - Contains example Sigma rules and templates
-  - `rule_template.yaml` - Comprehensive template with all possible Sigma rule fields and documentation
-  - `rule_example1.yml` - Basic Windows Defender rule example
-- `pipelines/` - Custom field mapping examples for log normalization
-- `sigma_rule_check_similarity.py` - Script to check similarity between Sigma rules
-
-### Challenge Section (04-Reto/)
-- TODO
-
-## Important Notes
-- This is an educational cybersecurity project focused on defensive techniques
-- Lab events are synthetic and designed for training purposes
-- Sigma rules follow community standards and MITRE ATT&CK framework mapping
-- All threat data comes from public sources (ThaiCERT API)
+### 03-Sigma
+- `rules/` - Reglas Sigma de ejemplo y plantillas
+- `pipelines/` - Ejemplos de mapeo de campos para normalización de logs
+- `sigma_rule_check_similarity.py` - Script para verificar similitud entre reglas Sigma
+- `sigma_to_eql_converter.py` - Conversor de reglas Sigma a EQL
