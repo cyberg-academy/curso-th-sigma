@@ -2,7 +2,7 @@ import requests
 from datetime import datetime
 import json
 
-# URLs for threats and tools (source ThaiCERT
+# URLs for threats and tools (source ThaiCERT)
 THREATS_URL = "https://apt.etda.or.th/cgi-bin/getcard.cgi?g=all&o=j"
 TOOLS_URL   = "https://apt.etda.or.th/cgi-bin/getcard.cgi?t=all&o=j"
 
